@@ -150,6 +150,8 @@ resource "azurerm_kubernetes_cluster_node_pool" "additional" {
   for_each = local.additional_node_pools
 
   kubernetes_cluster_id = azurerm_kubernetes_cluster.main.id
+  
+  fips_enabled           = false
 
   name                   = each.key
   vm_size                = each.value.vm_size
